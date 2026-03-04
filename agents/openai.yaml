@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lunet Static Sites and API Docs"
+  short_description: "Build Lunet docs and .NET API documentation"
+  default_prompt: "Use Lunet to scaffold, build, and document static sites with full plugin-aware guidance and API docs generation."
