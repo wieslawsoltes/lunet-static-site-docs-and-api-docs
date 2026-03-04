@@ -1,4 +1,4 @@
 interface:
   display_name: "Lunet Site Configuration"
   short_description: "Docs-first Lunet setup for config, content, menus, plugins, and deployment"
-  default_prompt: "Use official lunet.io docs as source of truth, map the request to the full Lunet feature set, then apply minimal file-focused fixes in config.scriban, front matter, menu.yml, layouts/includes, plugin configuration, and deployment workflow."
+  default_prompt: "Use lunet.io docs plus the default template repository (lunet-io/templates) as source of truth, start with template-first setup to avoid rebuilding layout/menu/search/theme foundations, then apply minimal file-focused fixes in config.scriban, front matter, menu.yml, plugin configuration, and deployment workflow."

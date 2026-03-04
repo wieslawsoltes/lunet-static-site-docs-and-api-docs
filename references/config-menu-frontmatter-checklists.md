@@ -4,11 +4,24 @@ Use this after opening the matching official docs pages.
 
 ## Required Docs Per Surface
 
+- Default template baseline: https://github.com/lunet-io/templates and https://github.com/lunet-io/templates/blob/main/dist/readme.md
 - `config.scriban`: https://lunet.io/docs/configuration/
 - Front matter/content: https://lunet.io/docs/content-and-frontmatter/
 - Navigation menus: https://lunet.io/docs/plugins/menus/
 - Layouts/includes: https://lunet.io/docs/layouts-and-includes/
 - Themes/layering: https://lunet.io/docs/themes-and-extends/
+
+## Template-First Gate (Run First)
+
+- For new or majorly reworked sites, confirm template-first path:
+  - `extend "lunet-io/templates"` exists in `config.scriban`.
+  - For production stability, prefer pinned template references when possible (`@tag`).
+  - site sets required `site_project_*` values.
+  - `site_project_init` is called after those values.
+- Confirm customizations use supported template extension points first:
+  - `template_theme_override_styles`
+  - documented `template_*` and `site_project_*` variables
+- Avoid replacing template layouts/includes unless there is a clear requirement.
 
 ## `config.scriban` Review Checklist
 
@@ -23,6 +36,7 @@ Use this after opening the matching official docs pages.
 ## `menu.yml` Review Checklist
 
 - Keep paths valid for existing pages and sections.
+- Reuse template menu conventions (`home`, `home2`, section menus) unless project requirements differ.
 - Use `folder: true` only when the item should expose descendants.
 - Keep menu root names stable so layout bindings (`site.menu.<name>`) remain valid.
 - Confirm active-state logic and breadcrumb rendering for nested pages.
@@ -48,6 +62,7 @@ Use this after opening the matching official docs pages.
 
 ## Feature-Specific Quick Checks
 
+- Template baseline: inherited layout/menu/search/theme primitives behave before custom overrides are applied.
 - Assets: resources + scss + bundle configuration align and output expected files.
 - Discoverability: taxonomies/rss/sitemap/search generate expected pages/files.
 - SEO/social: cards output expected head tags; summary fallback works.

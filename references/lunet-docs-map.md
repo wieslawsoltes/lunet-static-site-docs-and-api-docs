@@ -5,6 +5,7 @@ Use this map as a routing index to official docs only.
 ## Table of Contents
 
 - [Entry Points](#entry-points)
+- [Default Template Baseline](#default-template-baseline)
 - [Core Guides](#core-guides)
 - [All Plugin Pages](#all-plugin-pages)
 - [Feature Coverage Matrix](#feature-coverage-matrix)
@@ -17,6 +18,14 @@ Use this map as a routing index to official docs only.
 | Lunet docs home | https://lunet.io/docs/ |
 | User guide landing | https://lunet.io/docs/ |
 | Plugins index | https://lunet.io/docs/plugins/ |
+
+## Default Template Baseline
+
+| Topic | URL |
+|---|---|
+| Default template repository | https://github.com/lunet-io/templates |
+| Template readme (overview + consumer contract) | https://github.com/lunet-io/templates/blob/main/readme.md |
+| Template dist readme (consumer quickstart/customization) | https://github.com/lunet-io/templates/blob/main/dist/readme.md |
 
 ## Core Guides
 
@@ -66,6 +75,7 @@ This matrix maps Lunet's public feature surface to docs and primary configuratio
 
 | Feature | Primary docs | Typical files touched |
 |---|---|---|
+| Default template baseline (recommended first step) | [templates repo](https://github.com/lunet-io/templates)<br>[template readme](https://github.com/lunet-io/templates/blob/main/readme.md)<br>[dist readme](https://github.com/lunet-io/templates/blob/main/dist/readme.md) | `config.scriban`, `menu.yml`, `docs/menu.yml`, site assets and theme override styles |
 | Scriban templating in config/pages/layouts | [Configuration](https://lunet.io/docs/configuration/)<br>[Content & front matter](https://lunet.io/docs/content-and-frontmatter/)<br>[Layouts & includes](https://lunet.io/docs/layouts-and-includes/) | `config.scriban`, content `.md`/`.sbn-*`, `/.lunet/layouts/*`, `/.lunet/includes/*` |
 | Layout resolution and include usage | [Layouts & includes](https://lunet.io/docs/layouts-and-includes/) | `/.lunet/layouts/*`, `/.lunet/includes/*`, front matter `layout` |
 | Theme/extension layering from GitHub | [Themes & extensions](https://lunet.io/docs/themes-and-extends/)<br>[Extends module](https://lunet.io/docs/plugins/extends/) | `config.scriban`, overrides under `/.lunet/*` |
@@ -93,6 +103,7 @@ This matrix maps Lunet's public feature surface to docs and primary configuratio
 ## Usage Rules
 
 1. Open the smallest relevant set of official URLs before editing files.
-2. Prefer configuration/file fixes over long conceptual explanations.
-3. Do not rely on local Lunet source checkout paths when giving guidance.
-4. Treat `api.dotnet` as opt-in: only deep-dive when the user asks for API docs work.
+2. For new or heavily customized sites, evaluate `lunet-io/templates` first before custom layout/menu/theme implementation.
+3. Prefer configuration/file fixes over long conceptual explanations.
+4. Do not rely on local Lunet source checkout paths when giving guidance.
+5. Treat `api.dotnet` as opt-in: only deep-dive when the user asks for API docs work.

@@ -4,19 +4,38 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
 
 ## Table of Contents
 
-- [1. Basic Documentation Site](#1-basic-documentation-site)
-- [2. Structured Navigation (Top Menu + Sidebar + Breadcrumbs)](#2-structured-navigation-top-menu--sidebar--breadcrumbs)
-- [3. Blog with Clean URLs, Feeds, and Discoverability](#3-blog-with-clean-urls-feeds-and-discoverability)
-- [4. Frontend Asset Pipeline (npm + SCSS + Bundles)](#4-frontend-asset-pipeline-npm--scss--bundles)
-- [5. Content Metadata and Social/SEO Cards](#5-content-metadata-and-socialseo-cards)
-- [6. Data-Driven Pages](#6-data-driven-pages)
-- [7. .NET API Documentation Section](#7-net-api-documentation-section)
-- [8. Local Dev and Deployment](#8-local-dev-and-deployment)
+- [1. Template-First Site Baseline (Required)](#1-template-first-site-baseline-required)
+- [2. Basic Documentation Site](#2-basic-documentation-site)
+- [3. Structured Navigation (Top Menu, Sidebar, Breadcrumbs)](#3-structured-navigation-top-menu-sidebar-breadcrumbs)
+- [4. Blog with Clean URLs, Feeds, and Discoverability](#4-blog-with-clean-urls-feeds-and-discoverability)
+- [5. Frontend Asset Pipeline (npm, SCSS, Bundles)](#5-frontend-asset-pipeline-npm-scss-bundles)
+- [6. Content Metadata and Social/SEO Cards](#6-content-metadata-and-socialseo-cards)
+- [7. Data-Driven Pages](#7-data-driven-pages)
+- [8. .NET API Documentation Section](#8-net-api-documentation-section)
+- [9. Local Dev and Deployment](#9-local-dev-and-deployment)
 
-## 1. Basic Documentation Site
+## 1. Template-First Site Baseline (Required)
+
+- Goal: avoid reinventing layout/menu/search/theme foundations.
+- Read:
+  - https://github.com/lunet-io/templates
+  - https://github.com/lunet-io/templates/blob/main/readme.md
+  - https://github.com/lunet-io/templates/blob/main/dist/readme.md
+  - https://lunet.io/docs/themes-and-extends/
+- Edit:
+  - `config.scriban` with `extend "lunet-io/templates"` (or pinned `extend "lunet-io/templates@<tag>"` for reproducibility)
+  - `site_project_*` values and `site_project_init`
+  - `menu.yml` / section `menu.yml` aligned with template conventions
+- Validate:
+  - navbar + docs menu render
+  - search/theme/syntax-highlighting defaults work
+  - only then proceed to custom overrides
+
+## 2. Basic Documentation Site
 
 - Goal: start a docs site with reusable layouts and consistent front matter.
 - Read:
+  - https://github.com/lunet-io/templates/blob/main/dist/readme.md
   - https://lunet.io/docs/getting-started/
   - https://lunet.io/docs/configuration/
   - https://lunet.io/docs/content-and-frontmatter/
@@ -30,10 +49,11 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - `lunet build`
   - `lunet serve`
 
-## 2. Structured Navigation (Top Menu + Sidebar + Breadcrumbs)
+## 3. Structured Navigation (Top Menu, Sidebar, Breadcrumbs)
 
 - Goal: make docs navigation predictable and section-aware.
 - Read:
+  - https://github.com/lunet-io/templates/blob/main/dist/readme.md
   - https://lunet.io/docs/plugins/menus/
   - https://lunet.io/docs/content-and-frontmatter/
   - https://lunet.io/docs/layouts-and-includes/
@@ -45,7 +65,7 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - all menu links resolve in built output
   - `page.menu_item` and breadcrumb rendering work on nested pages
 
-## 3. Blog with Clean URLs, Feeds, and Discoverability
+## 4. Blog with Clean URLs, Feeds, and Discoverability
 
 - Goal: blog-style docs/news pages with generated taxonomy, RSS, sitemap, and search.
 - Read:
@@ -65,10 +85,11 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - RSS and sitemap outputs exist
   - search index is generated and queryable
 
-## 4. Frontend Asset Pipeline (npm + SCSS + Bundles)
+## 5. Frontend Asset Pipeline (npm, SCSS, Bundles)
 
 - Goal: reproducible CSS/JS pipeline without manual `node_modules` management.
 - Read:
+  - https://github.com/lunet-io/templates/blob/main/dist/readme.md
   - https://lunet.io/docs/plugins/resources/
   - https://lunet.io/docs/plugins/scss/
   - https://lunet.io/docs/plugins/bundles/
@@ -81,10 +102,11 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - generated CSS/JS paths exist
   - expected minified/concatenated behavior matches config
 
-## 5. Content Metadata and Social/SEO Cards
+## 6. Content Metadata and Social/SEO Cards
 
 - Goal: reliable sharing metadata for docs/blog pages.
 - Read:
+  - https://github.com/lunet-io/templates/blob/main/dist/readme.md
   - https://lunet.io/docs/plugins/cards/
   - https://lunet.io/docs/plugins/summarizer/
   - https://lunet.io/docs/plugins/tracking/
@@ -96,7 +118,7 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - meta tags render in page head
   - tracking appears only in prod environment
 
-## 6. Data-Driven Pages
+## 7. Data-Driven Pages
 
 - Goal: generate docs pages from structured data files.
 - Read:
@@ -112,7 +134,7 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - data files parse
   - expected `site.data.*` keys are present in rendered output
 
-## 7. .NET API Documentation Section
+## 8. .NET API Documentation Section
 
 - Goal: add API reference pages as part of the docs site.
 - Read:
@@ -127,7 +149,7 @@ Use these playbooks to select docs and edit points for common, high-value Lunet 
   - API root and namespace/member pages are generated
   - `xref:` links resolve where expected
 
-## 8. Local Dev and Deployment
+## 9. Local Dev and Deployment
 
 - Goal: fast local iteration and deterministic publishing.
 - Read:
